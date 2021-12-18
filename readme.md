@@ -165,12 +165,12 @@ a %= 3;                                   //a = a % 3
 c = (a == b) ? 0 : 1                      //c = 0 if (a == b) otherwise c = 1
 
 //Special 
-sizeof(a);                                //return size of datatype (basic, struct, static arrays...)
+sizeof(a);                                //return size of datatype 
 &a;                                       //the memory address of a 
 *ptr                                      //the value stored at address pointed by a pointer
 
-location.x = 1;                           //access to datatype member (enum, struct...)
-locptr->x = 1;                            //access to datatype member (enum, struct...) through pointer
+location.x = 1;                           //access to user datatype member
+locptr->x = 1;                            //access to user datatype member through pointer
 arr[3];                                   //array subscripting
 
 ```
@@ -245,7 +245,7 @@ Create a user datatype composed of other datatypes (compound datatype).
 struct coord {int x; int y;};             //coord is a coordinate type containing two ints
 struct coord {int x, int y;} home         //with home variable declaration
 struct coord {int x=1; int y=2;};         //error, no initialization in struct 
-struct {int x; int y;} location           //unnamed struct, only location variable of this type 
+struct {int x; int y;} location           //unnamed struct, only location variable exist
 
 struct coord location                     //variable of type coord 
 struct coord location = {1,2}             //variable of type coord with initialization  
@@ -262,7 +262,7 @@ Create a user datatype with only one member stored at a time.
 ```c
 union ascii{char ch; int code;}           //ascii is a type of max size between char and int
 union ascii{char ch; int code;} ascii_a   //with ascii_a variable declaration
-union {char ch; int code;} ascii_a        //unnamed union, only ascii_a variable exist of this type 
+union {char ch; int code;} ascii_a        //unnamed union, only ascii_a variable exist 
 
 union ascii ascii_a                       //variable of type ascii
 union ascii ascii_a = {'a'}               //variable of type ascii with initialization
@@ -318,8 +318,8 @@ int* ptr; return ptr;                     //return a copy of the address
 Size if fixed once defined, storage time is automatically managed by scope.
 
 ```c                          
-int ops[3];                               //Fixed length array (size defined at compile-time and immutable)
-int ops[size];                            //Variable length array (size defined at runtime and immutable)
+int ops[3];                               //Fixed length array (immutable size defined at compile-time)
+int ops[size];                            //Variable length array (immutable size defined at runtime)
 
 int ops[3] = {1,2,3};                     //with initializer  
 int ops[2] = {1,2,3};                     //error: size of array must > initializer list 
@@ -352,8 +352,8 @@ int *ops = malloc(3*sizeof(int));         //request storage creation
 int *rops = realloc(ops,4*sizeof(int));   //request reallocation with bigger size  
 free(rops)                                //free memory
 
-sizeof(ops);                              //impossible to compute size, responsibility of developer to store it 
-ops[i];                                   //array subscripting is also working on dynamic = *(ops + i elements) 
+sizeof(ops);                              //not possible, responsibility of developer to store it 
+ops[i];                                   //array subscripting *(ops + i elements) 
 ```
 
 ## Preprocessind directives
@@ -362,8 +362,8 @@ ops[i];                                   //array subscripting is also working o
 #define PI 3.14                         //Replace PI with 3.14 everywhere in the code 
 
 //The include directive will replace the #include line with content of the file  
-#include <stdio.h>                      //include standard lib (Gcc will look in /usr/local/lib for library)
-#include <cc34.h>                       //include external lib (need to specify for linking gcc -lcc34 )
+#include <stdio.h>                      //include standard lib (/usr/local/lib for library)
+#include <cc34.h>                       //include external lib (gcc -lcc34 )
 #include "my_file.h"                    //include header file
 ```
 
