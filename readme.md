@@ -18,7 +18,6 @@
   * [Arrays](#arrays)
     + [Static Arrays](#static-arrays)
     + [Dynamic Array](#dynamic-array)
-  * [Understand compilation](#understand-compilation)
 
 
 ## Comments 
@@ -367,9 +366,14 @@ ops[i];                                   //subscript = *(ops + i elements)
 #include <cc34.h>                       //include external lib (gcc -lcc34 )
 #include "my_file.h"                    //include header file
 ```
+## Todo
+[ ] storage classes on functions    
+[ ] adding more directives     
+[ ] point about understanding compilation and object files    
 
-References
-- array decaying : https://stackoverflow.com/questions/35442414/dynamic-vs-static-array-in-c
+## References
+
+- array decaying : https://stackoverflow.com/questions/35442414/dynamic-vs-static-array-in-c   
 - array decaying : https://stackoverflow.com/questions/4607128/in-c-are-arrays-pointers-or-used-as-pointers/4608421#4608421
 - array decaying : http://www.c-faq.com/aryptr/aryptrequiv.html
 - forwar declaration: https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c
