@@ -85,7 +85,7 @@ long double;
 Store value into memory address.
 
 ```c
-int c_nt;                                 //naming convention, no special symbols other than underscore
+int c_nt;                                 //naming convention, no special symbols other than _ 
 int cnt,Cnt;                              //is case sensitive cnt != Cnt
 int cnt;                                  //declare 
 int cnt = 0;                              //declare and initialize 
@@ -93,15 +93,15 @@ int cnt,cnt1,cnt2;                        //multi declare
 int cnt,cnt1=10,cnt2;                     //multi declare and initialize 
 ```
 
-## Variable Storage Classes 
+## Variables Storage Classes 
 
 Defines the scope and lifetime of variables.
 
 ```c
 //local variables
-auto int a;                               //block scope
-register int b;                           //block scope, stored in a register not in ram (not guarantee). 
-static int c;                             //keep variable in existence during the lifetime of the program
+auto int a;                               //block scope (default)
+register int b;                           //block scope,stored in a register not in ram 
+static int c;                             //keep variable in existence during the program lifetime 
 
 // global variables
 static int c;                             //restrict access from another object file
@@ -113,7 +113,7 @@ extern int d;                             //reference a global variable in anoth
 Store value into memory address once and forbid modifications (at compile time).
 
 ```c
-const double phi = 1.6;                   //compiler won't permit variable assignement after definition
+const double phi = 1.6;                   //compiler forbid variable assignement after definition
 ```
 
 ## Operators
@@ -169,8 +169,8 @@ sizeof(a);                                //return size of datatype (basic, stru
 &a;                                       //the memory address of a 
 *ptr                                      //the value stored at address pointed by a pointer
 
-location.x = 1;                           //access to datatype member (enum, struct, union)  
-locptr->x = 1;                            //access to datatype member (enum, struct, union) through pointer
+location.x = 1;                           //access to datatype member (enum, struct...)
+locptr->x = 1;                            //access to datatype member (enum, struct...) through pointer
 arr[3];                                   //array subscripting
 
 ```
@@ -227,7 +227,7 @@ ptr                                       //the memory address of the variable
 Create a user datatype with a defined set of named integral constants.
 
 ```c
-enum httpstatus {ok,created}              //httpstatus is a type with possible int values ok=0, created=1
+enum httpstatus {ok,created}              //httpstatus is a type with possible values 0 or 1
 enum httpstatus {ok,created} response     //with response variable declaration
 enum httpstatus {ok=200,created=201}      //explicit assignement of int values
 enum {ok,created}                         //unnamed type, only values can be used  
@@ -243,9 +243,9 @@ Create a user datatype composed of other datatypes (compound datatype).
 
 ```c
 struct coord {int x; int y;};             //coord is a coordinate type containing two ints
-struct coord {int x=1; int y=2;};         //error, no initialization in struct 
 struct coord {int x, int y;} home         //with home variable declaration
-struct {int x; int y;} location           //unnamed struct, only location variable exist of this type
+struct coord {int x=1; int y=2;};         //error, no initialization in struct 
+struct {int x; int y;} location           //unnamed struct, only location variable of this type 
 
 struct coord location                     //variable of type coord 
 struct coord location = {1,2}             //variable of type coord with initialization  
@@ -262,7 +262,7 @@ Create a user datatype with only one member stored at a time.
 ```c
 union ascii{char ch; int code;}           //ascii is a type of max size between char and int
 union ascii{char ch; int code;} ascii_a   //with ascii_a variable declaration
-union {char ch; int code;} ascii_a        //unnamed union, only ascii_a variable exist of this type
+union {char ch; int code;} ascii_a        //unnamed union, only ascii_a variable exist of this type 
 
 union ascii ascii_a                       //variable of type ascii
 union ascii ascii_a = {'a'}               //variable of type ascii with initialization
@@ -293,8 +293,8 @@ ascii a                                   //variable of type asc
 Self-contained block of statements that can be executed repeatedly.
 
 ```c
-void fib(void){}                          //declare a function which no parameter and no return
-int fib(int a){}                          //declare a function which takes an int and return an int 
+void fib(void){}                          //declare a function with no parameter, no return
+int fib(int a){}                          //declare a function which takes an int, return an int 
 int res = fib(3);                         //calling fib function
 
 //passing arguments to function is always by value 
@@ -359,12 +359,12 @@ ops[i];                                   //array subscripting is also working o
 ## Preprocessind directives
 
 ```c
-  #define PI 3.14                         //Replace PI with 3.14 everywhere in the code 
+#define PI 3.14                         //Replace PI with 3.14 everywhere in the code 
 
-  //The include directive will replace the #include line with content of the file  
-  #include <stdio.h>                      //include standard lib (Gcc will look in /usr/local/lib for library)
-  #include <cc34.h>                       //include external lib (need to specify for linking gcc -lcc34 )
-  #include "my_file.h"                    //include header file
+//The include directive will replace the #include line with content of the file  
+#include <stdio.h>                      //include standard lib (Gcc will look in /usr/local/lib for library)
+#include <cc34.h>                       //include external lib (need to specify for linking gcc -lcc34 )
+#include "my_file.h"                    //include header file
 ```
 
 References
