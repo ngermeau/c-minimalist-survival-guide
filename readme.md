@@ -303,7 +303,7 @@ int fib(struct item it){}                 //receive a copy of the struct value
 int fib(enum status st){}                 //receive a copy of the int value
 int fib(union item it){}                  //receive a copy of the union value
 int fib(int *ptr)(){}                     //receive a copy of the pointer value (an address)
-int fib(int arr[])(){}                    //Due to array decaying, same as above 
+int fib(int arr[])(){}                    //due to array decaying, same as above 
 
 //returning value from a function is always by value
 return a;                                 //return a copy of the value of a
@@ -318,8 +318,8 @@ int* ptr; return ptr;                     //return a copy of the address
 Size if fixed once defined, storage time is automatically managed by scope.
 
 ```c                          
-int ops[3];                               //Fixed length array (immutable size defined at compile-time)
-int ops[size];                            //Variable length array (immutable size defined at runtime)
+int ops[3];                               //fixed length array (immutable size defined at compile-time)
+int ops[size];                            //variable length array (immutable size defined at runtime)
 
 int ops[3] = {1,2,3};                     //with initializer  
 int ops[2] = {1,2,3};                     //error: size of array must > initializer list 
@@ -332,14 +332,15 @@ int matrix[2][2] = {{0,1},{2,3}};         //multi-dimensional
 
 sizeof(ops)/sizeof(ops[0]);               //size of the array
 
-//Decay: Whenever an array appears in an expression, the compiler replace it with a pointer to the first element (&a[0])
-ops;                                      //decay to pointer int* which contains address of first array element
-ops[i];                                   //decay and apply array subscripting =  *(ops + i elements) 
+//Decay: 
+//Compiler replace array expression with a pointer to the first element (&a[0])
+ops;                                      //decay to pointer int* = &ops[0]
+ops[i];                                   //decay and subscript = *(ops + i elements) 
 
-//Decay: Exceptions (&, sizeof, string literal)
-&(ops);                                   //give the address of the array and not the one of the pointer
-sizeof(ops);                              //give the sizeof of the array and not the one of the pointer
-char[] name = "peter";                    //name contains the address of the array not the one of the pointer
+//Exceptions (&, sizeof, string literal)
+&(ops);                                   //address of the array, not the one of the pointer
+sizeof(ops);                              //sizeof of the array, not the one of the pointer
+char[] name = "peter";                    //contains address of the array, not the pointer
 ```
 
 ### Dynamic Array 
@@ -353,7 +354,7 @@ int *rops = realloc(ops,4*sizeof(int));   //request reallocation with bigger siz
 free(rops)                                //free memory
 
 sizeof(ops);                              //not possible, responsibility of developer to store it 
-ops[i];                                   //array subscripting *(ops + i elements) 
+ops[i];                                   //subscript = *(ops + i elements) 
 ```
 
 ## Preprocessind directives
