@@ -336,7 +336,7 @@ sizeof(ops)/sizeof(ops[0]);               //size of the array
 ops;                                      //decay to pointer int* = &ops[0]
 ops[i];                                   //decay and subscript = *(ops + i elements) 
 
-//Exceptions (&, sizeof, string literal)
+//Decay exceptions (&, sizeof, string literal)
 &(ops);                                   //address of the array, not the one of the pointer
 sizeof(ops);                              //sizeof of the array, not the one of the pointer
 char[] name = "peter";                    //contains address of the array, not the pointer
