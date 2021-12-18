@@ -318,8 +318,8 @@ int* ptr; return ptr;                     //return a copy of the address
 Size if fixed once defined, storage time is automatically managed by scope.
 
 ```c                          
-int ops[3];                               //fixed length array (immutable size defined at compile-time)
-int ops[size];                            //variable length array (immutable size defined at runtime)
+int ops[3];                               //fixed array (immutable size defined at compile-time)
+int ops[size];                            //variable array (immutable size defined at runtime)
 
 int ops[3] = {1,2,3};                     //with initializer  
 int ops[2] = {1,2,3};                     //error: size of array must > initializer list 
