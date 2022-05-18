@@ -366,10 +366,6 @@ ops[i];                                   //subscript = *(ops + i elements)
 #include <cc34.h>                       //include external lib (gcc -lcc34 )
 #include "my_file.h"                    //include header file
 ```
-## Todo
-[ ] storage classes on functions    
-[ ] adding more directives     
-[ ] point about understanding compilation and object files    
 
 ## References
 
