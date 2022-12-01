@@ -367,12 +367,3 @@ ops[i];                                   //subscript = *(ops + i elements)
 #include "my_file.h"                    //include header file
 ```
 
-## References
-
-- array decaying : https://stackoverflow.com/questions/35442414/dynamic-vs-static-array-in-c   
-- array decaying : https://stackoverflow.com/questions/4607128/in-c-are-arrays-pointers-or-used-as-pointers/4608421#4608421
-- array decaying : http://www.c-faq.com/aryptr/aryptrequiv.html
-- forwar declaration: https://stackoverflow.com/questions/4757565/what-are-forward-declarations-in-c
-- compilation : https://stackoverflow.com/questions/6264249/how-does-the-compilation-linking-process-work
-- compilation: https://www.linuxtopia.org/online_books/an_introduction_to_gcc/gccintro_11.html
-
