@@ -1,4 +1,4 @@
-# Minimalistic C Reference
+# Minimalist C Reference
 
   * [Comments](#comments)
   * [Literals](#literals)
