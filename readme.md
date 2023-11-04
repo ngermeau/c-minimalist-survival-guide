@@ -1,4 +1,4 @@
-# Minimalist C Reference
+# C Minimalist Survival Guide
 
   * [Comments](#comments)
   * [Literals](#literals)
